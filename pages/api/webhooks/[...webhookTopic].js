@@ -7,6 +7,8 @@
  * To update this file, run `npm run update:config` or `bun run update:config`
  */
 
+import ordersCreateHandler from "@/utils/webhooks/orders_create.js";
+import inventoryLevelsUpdateHandler from "@/utils/webhooks/inventory_levels_update.js";
 import shopify from "@/utils/shopify.js";
 import appUninstallHandler from "@/utils/webhooks/app_uninstalled.js";
 
@@ -42,6 +44,24 @@ export default async function handler(req, res) {
     switch (validateWebhook.topic) {
       case "APP_UNINSTALLED":
         appUninstallHandler(
+          validateWebhook.topic,
+          shop,
+          rawBody,
+          webhookId,
+          apiVersion
+        );
+        break;
+      case "INVENTORY_LEVELS_UPDATE":
+        inventoryLevelsUpdateHandler(
+          validateWebhook.topic,
+          shop,
+          rawBody,
+          webhookId,
+          apiVersion
+        );
+        break;
+      case "ORDERS_CREATE":
+        ordersCreateHandler(
           validateWebhook.topic,
           shop,
           rawBody,

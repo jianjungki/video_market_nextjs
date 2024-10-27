@@ -1,3 +1,5 @@
+// If you have the recommended extension installed, create a new page and type `createproxy` to generate proxy route boilerplate
+
 import clientProvider from "@/utils/clientProvider";
 import withMiddleware from "@/utils/middleware/withMiddleware.js";
 

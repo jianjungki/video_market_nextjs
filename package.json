@@ -17,7 +17,7 @@
     "pretty": "prettier --write ./",
     "update": "ncu -u",
     "-----> Tunnel <-----": "",
-    "ngrok:auth": "ngrok authtoken <auth-token-goes-here>",
+    "ngrok:auth": "ngrok authtoken 1SMgTfGoDlkGGtV6zrmjX5QsZL2_5C29k8eTD2T7hGjnN4zD2",
     "ngrok": "ngrok http 3000",
     "cloudflare": "cloudflared tunnel --url localhost:3000",
     "-----> Shopify <-----": "",
@@ -37,10 +37,15 @@
     "prepare": "npx prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^5.19.0",
+    "@dnd-kit/core": "^6.1.0",
+    "@dnd-kit/modifiers": "^7.0.0",
+    "@dnd-kit/sortable": "^8.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@prisma/client": "^5.20.0",
     "@shopify/polaris": "^13.9.0",
-    "@shopify/shopify-api": "^11.3.0",
+    "@shopify/shopify-api": "^11.4.1",
     "cryptr": "^6.3.0",
+    "lucide-react": "^0.453.0",
     "next": "14.2.7",
     "next-api-middleware": "^3.0.0",
     "react": "18.3.1",
@@ -48,11 +53,11 @@
   },
   "devDependencies": {
     "@iarna/toml": "^2.2.5",
-    "@shopify/cli-kit": "^3.66.1",
+    "@shopify/cli-kit": "^3.67.3",
     "dotenv": "^16.4.5",
-    "ngrok": "^5.0.0-beta.2",
-    "npm-check-updates": "^17.1.0",
+    "ngrok": "5.0.0-beta.2",
+    "npm-check-updates": "^17.1.3",
     "prettier": "^3.3.3",
-    "prisma": "^5.19.0"
+    "prisma": "^5.20.0"
   }
 }
