@@ -13,15 +13,37 @@ datasource db {
 model stores {
   shop     String   @id
   isActive Boolean? @default(false)
-
-  @@index([shop])
 }
 
 model session {
   id      String  @id
   content String? @db.Text
   shop    String?
-  
-  @@index([id])
-  @@index([shop])
+}
+
+model applications {
+  id                   String              @id @default(cuid())
+  name                 String              @db.Text
+  email                String              @unique
+  customer_id          String
+  application_status   applicationStatus   @default(pending)
+  fields               Json?
+  reapplication_status reapplicationStatus @default(na)
+}
+
+model applicationForm {
+  id     String @id @default(cuid())
+  fields Json
+}
+
+enum applicationStatus {
+  pending
+  approved
+  rejected
+}
+
+enum reapplicationStatus {
+  na
+  allowed
+  reapplied
 }
